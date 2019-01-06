@@ -59,7 +59,8 @@ function viewProducts() {
             console.log("Id Number: " + response[i].item_id + " || " + response[i].product_name + " " + 
             response[i].price +  " " + "Quantity: " + response[i].stock_quantity + "\n")
             }
-    })
+        })
+    pickOptions();    
 };
 
 function viewLowInventory() {
@@ -74,6 +75,7 @@ function viewLowInventory() {
             )
         }
     });
+    pickOptions();
 };
 
 function addInventory() {
@@ -82,7 +84,7 @@ function addInventory() {
         {
             name: 'item',
             type: 'input',
-            message: "To which item will you be adding stock?"
+            message: "What is the item number for the product to whcih will you be adding stock?"
         },
         {
             name: 'quantity_to_add',
@@ -95,6 +97,7 @@ function addInventory() {
             function(){
            console.log("Stock updated");   
         })
+        pickOptions();
     })
 };
 
@@ -131,6 +134,7 @@ function addProduct() {
             function(){
            console.log("Item added successfully");   
         })
+        pickOptions();
     })
 }
 // 

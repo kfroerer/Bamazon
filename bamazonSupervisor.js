@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var inquirer = require("inquirer");
+const cTable = require('console.table');
 var connection = mysql.createConnection({
     host: "localhost",
   
@@ -41,9 +42,17 @@ function pickOptions () {
          });
 };    
 
-// function viewSales() {
+function viewSales() {
+        var salesQuery = 'SELECT departments.dept_id, departments.department_name, departments.overhead_costs, SUM(products.product_sales) as "Product Sales", (SUM(products.product_sales)-overhead_costs) as "Profit" FROM products LEFT JOIN departments ON products.department_name = departments.department_name GROUP BY department_name ORDER BY dept_id ASC'
+        connection.query(salesQuery, function(err, response){
+            if (err) throw err;
+            console.table(response);
+            return pickOptions()
+        })
 
-// }
+}
+
+
 
 function newDepartment(){
     inquirer
