@@ -30,4 +30,4 @@ In the supervisor file there are two options: view product sales and add a new d
 
 Here both options can be viewed:
 
-<img src=screenshots/supervisor_executed.png height=300>
+<img src=screenshots/supervisor-executed.png height=300>
